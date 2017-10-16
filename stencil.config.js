@@ -1,10 +1,10 @@
 exports.config = {
   bundles: [
-    { components: ['my-name'] }
+    { components: ['lisk-button-send', 'lisk-button-vote'] }
   ],
-  collections: [
-    { name: '@stencil/router' }
-  ]
+  namespace: 'liskButtons',
+  generateDistribution: true,
+  generateWWW: false,
 };
 
 exports.devServer = {

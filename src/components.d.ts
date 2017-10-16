@@ -4,33 +4,62 @@
  * and imports for stencil collections that might be configured in your stencil.config.js file
  */
 
-import '@stencil/router';
+import { LiskButtonSend as LiskButtonSend } from './components/lisk-buttons/lisk-button-send';
 
-import { MyName as MyName } from './components/my-name/my-name';
-
-interface HTMLMyNameElement extends MyName, HTMLElement {
+interface HTMLLiskButtonSendElement extends LiskButtonSend, HTMLElement {
 }
-declare var HTMLMyNameElement: {
-  prototype: HTMLMyNameElement;
-  new (): HTMLMyNameElement;
+declare var HTMLLiskButtonSendElement: {
+  prototype: HTMLLiskButtonSendElement;
+  new (): HTMLLiskButtonSendElement;
 };
 declare global {
   interface HTMLElementTagNameMap {
-      "my-name": HTMLMyNameElement;
+      "lisk-button-send": HTMLLiskButtonSendElement;
   }
   interface ElementTagNameMap {
-      "my-name": HTMLMyNameElement;
+      "lisk-button-send": HTMLLiskButtonSendElement;
   }
   namespace JSX {
       interface IntrinsicElements {
-          "my-name": JSXElements.MyNameAttributes;
+          "lisk-button-send": JSXElements.LiskButtonSendAttributes;
       }
   }
   namespace JSXElements {
-      export interface MyNameAttributes extends HTMLAttributes {
+      export interface LiskButtonSendAttributes extends HTMLAttributes {
         
-          first?: any,
-          last?: any
+          amount?: number,
+          recipient?: string,
+          title?: string
+      }
+  }
+}
+
+import { LiskButtonVote as LiskButtonVote } from './components/lisk-buttons/lisk-button-vote';
+
+interface HTMLLiskButtonVoteElement extends LiskButtonVote, HTMLElement {
+}
+declare var HTMLLiskButtonVoteElement: {
+  prototype: HTMLLiskButtonVoteElement;
+  new (): HTMLLiskButtonVoteElement;
+};
+declare global {
+  interface HTMLElementTagNameMap {
+      "lisk-button-vote": HTMLLiskButtonVoteElement;
+  }
+  interface ElementTagNameMap {
+      "lisk-button-vote": HTMLLiskButtonVoteElement;
+  }
+  namespace JSX {
+      interface IntrinsicElements {
+          "lisk-button-vote": JSXElements.LiskButtonVoteAttributes;
+      }
+  }
+  namespace JSXElements {
+      export interface LiskButtonVoteAttributes extends HTMLAttributes {
+        
+          unvotes?: string,
+          votes?: string,
+          title?: string
       }
   }
 }

@@ -13,10 +13,26 @@
   <link rel="apple-touch-icon" href="/assets/icon/icon.png">
   <link rel="icon" type="image/x-icon" href="/assets/icon/favicon.ico">
   <link rel="manifest" href="/manifest.json">
+  <style>
+    .container {
+      max-width: 976px;
+      padding: 10rem;
+    }
+    .btn {
+      display: none;
+    }
+    </style>
 </head>
 <body>
-
-  <my-name first="Stencil" last="JS"></my-name>
-
+  <div class="container">
+    <div class="columns">
+      <div class="column col-6 center-md">
+        <lisk-button-send amount=100 recipient="15015136092749848942L"/>
+        <lisk-button-send amount=100 recipient="15015136092749848942L" title="Send Me LSK for food"/>
+        <lisk-button-vote votes="goodPerson1,goodPerson2,goodPerson3" unvotes="badPerson1,badPerson2,badPerson3"/>
+        <lisk-button-vote votes="goodPerson1,goodPerson2,goodPerson3" title="Vote for ME"/>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

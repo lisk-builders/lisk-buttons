@@ -1,11 +1,14 @@
 {
-  "name": "@stencil/starter",
-  "private": true,
-  "version": "0.0.1",
-  "description": "Stencil App Starter",
+  "name": "@lisk-builders/lisk-buttons",
+  "version": "0.5.0",
+  "description": "lisk buttons allow you to open Lisk Nano wallet with pre-filled forms",
+  "main": "dist/collection/index.js",
+  "types": "dist/collection/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/"
   ],
+  "browser": "dist/liskbuttons.js",
   "scripts": {
     "build": "stencil build --prerender",
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
@@ -15,8 +18,10 @@
     "test.watch": "jest --watch --no-cache"
   },
   "dependencies": {
+    "@alepop/check-for-uri-handler": "0.0.2",
     "@stencil/core": "next",
-    "@stencil/router": "latest"
+    "@stencil/router": "latest",
+    "spectre.css": "^0.4.4"
   },
   "devDependencies": {
     "@stencil/dev-server": "latest",
@@ -26,19 +31,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ionic-team/stencil-app-starter.git"
+    "url": "git+https://github.com/lisk-builders/lisk-buttons.git"
   },
-  "author": "Ionic Team",
-  "license": "MIT",
+  "author": "Aleksey Popov",
+  "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/ionic-team/stencil"
+    "url": "https://github.com/lisk-builders/lisk-buttons/issues"
   },
-  "homepage": "https://github.com/ionic-team/stencil",
+  "homepage": "https://github.com/lisk-builders/lisk-buttons",
   "jest": {
     "transform": {
       "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
     },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts?|tsx?|jsx?)$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
