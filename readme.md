@@ -1,3 +1,4 @@
+[![Coverage Status](https://coveralls.io/repos/github/lisk-builders/lisk-buttons/badge.svg?branch=master)](https://coveralls.io/github/lisk-builders/lisk-buttons?branch=master)
 # Lisk Buttons
 🖲️ Lisk Buttons allow you to open Lisk Nano wallet with pre-filled forms
 
