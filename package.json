@@ -15,7 +15,8 @@
     "serve": "stencil-dev-server",
     "start": "npm run dev",
     "test": "jest --no-cache",
-    "test.watch": "jest --watch --no-cache"
+    "test.watch": "jest --watch --no-cache",
+    "test.ci": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "dependencies": {
     "@alepop/check-for-uri-handler": "0.0.2",
@@ -27,6 +28,7 @@
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
     "@types/jest": "^21.1.1",
+    "coveralls": "^3.0.0",
     "jest": "^21.2.1"
   },
   "repository": {
