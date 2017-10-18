@@ -14,11 +14,11 @@
 
 # Send Button
 ```
-<lisk-button-send amount=100 recipient="15015136092749848942L" title="Donate Me" />
+<lisk-button-send amount=100 recipient="15015136092749848942L" title="Donate Me"></lisk-button-send>
 ```
 
 # Vote Button
 ```
-<lisk-button-vote votes="goodDelegate1,goodDelegate2" unvotes="badDelegate1,badDelegate2" title="Vote" />
+<lisk-button-vote votes="goodDelegate1,goodDelegate2" unvotes="badDelegate1,badDelegate2" title="Vote"></lisk-button-vote>
 ```
 
