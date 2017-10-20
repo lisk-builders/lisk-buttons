@@ -9,7 +9,7 @@
 - Then you can use the element anywhere in your template, JSX, html etc.
 
 # Node Modules
-- Run npm install my-name --save
+- Run npm install @lisk-builders/lisk-buttons --save
 - Put a script tag similar to this `<script src='node_modules/lisk-buttons/dist/liskbuttons.js></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc.
 
