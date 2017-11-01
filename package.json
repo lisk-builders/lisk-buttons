@@ -1,6 +1,6 @@
 {
   "name": "@lisk-builders/lisk-buttons",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "lisk buttons allow you to open Lisk Nano wallet with pre-filled forms",
   "main": "dist/collection/index.js",
   "types": "dist/collection/index.d.ts",

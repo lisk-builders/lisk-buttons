@@ -5,7 +5,7 @@
 ## Using lisk buttons in your project
 
 # Script tag
-- Put a script tag `<script src='https://unpkg.com/@lisk-builders/lisk-buttons@0.5.0/dist/liskbuttons.js'></script>` in the head of your index.html
+- Put a script tag `<script src='https://unpkg.com/@lisk-builders/lisk-buttons@0.6.0/dist/liskbuttons.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc.
 
 # Node Modules
