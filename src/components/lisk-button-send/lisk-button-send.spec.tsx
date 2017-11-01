@@ -1,6 +1,6 @@
 import { flush, render } from '@stencil/core/testing';
 import { LiskButtonSend } from './lisk-button-send';
-import { getURL, openURL } from '../utils/index'
+import { getURL } from '../utils/index'
 
 describe('LiskButtonSend', () => {
   it('should build', () => {
@@ -38,38 +38,14 @@ describe('LiskButtonSend', () => {
       const btn = element.querySelector('button');
       btn.click();
       expect(getURL)
-      .toBeCalledWith('send', { recipient: element.recipient, amount: element.amount})
+      .toHaveBeenCalledWith('send', { recipient: element.recipient, amount: element.amount})
     });
 
     it('should call openURL method on click event', async () => {
-      openURL = jest.fn();
-      element.amount = 100;
-      element.recipient = '15015136092749848942L'
-      await flush(element);
-      const btn = element.querySelector('button');
-      btn.click();
-      expect(openURL).toBeCalled();
-    });
-
-    it('should set loading to true on click event', () => {
       const el = new LiskButtonSend();
+      el.openUrl = jest.fn();
       el.open();
-      expect(el.loading).toBeTruthy();
+      expect(el.openUrl).toHaveBeenCalled();
     });
-
-    it('should set loading to false onSuccess', () => {
-      const el = new LiskButtonSend();
-      el.open();
-      expect(el.loading).toBeTruthy();
-      el.onSuccess();
-      expect(el.loading).toBeFalsy();
-    });
-
-    it('should show tooltip onError', () => {
-      const el = new LiskButtonSend();
-      expect(el.showTooltip).toBeFalsy();
-      el.onError();
-      expect(el.showTooltip).toBeTruthy();
-    })
   });
 });

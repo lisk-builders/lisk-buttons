@@ -26,3 +26,6 @@ export const getURL = (linkType, params) => {
   }
 
 export const openURL = (uri: string, failCb: Function, successCb: Function) => checURI(uri, failCb, successCb);
+
+
+export const errorTooltip = 'You need to install Lisk Nano wallet to use this feature';
