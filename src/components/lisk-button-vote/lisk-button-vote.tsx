@@ -1,14 +1,15 @@
-import { Component, Prop, State } from '@stencil/core';
-import {  getURL, openURL } from '../utils/index';
-
-const erroTooltip = 'You need to install the Lisk Nano to use this feature';
+import { Component, Prop } from '@stencil/core';
+import {  getURL } from '../utils/index';
+import { LiskButton } from '../lisk-button/lisk-button';
 
 @Component({
   tag: 'lisk-button-vote',
-  styleUrl: 'lisk-buttons.scss'
+  styleUrl: '../lisk-button/lisk-button.scss',
+  shadow: true
 })
-export class LiskButtonVote {
+export class LiskButtonVote extends LiskButton {
   constructor() {
+    super();
     this.open = this.open.bind(this);
     this.getDefaultTitle = this.getDefaultTitle.bind(this);
   }
@@ -16,25 +17,11 @@ export class LiskButtonVote {
   @Prop() unvotes: string;
   @Prop() votes: string;
   @Prop() title:string;
-  @State() showTooltip: boolean = false;
-  @State() loading: boolean = false;
-
-  onError() {
-    this.loading = false;
-    this.showTooltip = true;
-  }
-
-  onSuccess() {
-    this.loading = false;
-    this.showTooltip = false;
-  }
 
   open() {
     const { votes, unvotes } = this;
-    this.loading = true;
-    this.showTooltip = false;
     const url = getURL('vote', { votes, unvotes });
-    openURL(url, this.onError.bind(this), this.onSuccess.bind(this));
+    this.openUrl(url);
   }
 
   getDefaultTitle() {
@@ -50,6 +37,6 @@ export class LiskButtonVote {
   render() {
     return <button class={`btn btn-success ${this.loading ? 'loading' : ''} ${this.showTooltip ? 'tooltip' : ''}`}
                    onClick={this.open}
-                   data-tooltip={erroTooltip}>{this.title || this.getDefaultTitle()}</button>
+                   data-tooltip={this.getTooltipText()}>{this.title || this.getDefaultTitle()}</button>
   }
 }

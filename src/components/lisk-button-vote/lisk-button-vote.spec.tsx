@@ -1,6 +1,6 @@
 import { flush, render } from '@stencil/core/testing';
 import { LiskButtonVote } from './lisk-button-vote';
-import { getURL, openURL } from '../utils/index'
+import { getURL } from '../utils/index'
 
 describe('LiskButtonVote', () => {
   it('should build', () => {
@@ -10,6 +10,8 @@ describe('LiskButtonVote', () => {
   describe('rendering', () => {
     let element;
     beforeEach(async () => {
+      // FIXME: element equal null when component use shadow dom
+      LiskButtonVote['metadata']['encapsulation'] = 0;
       element = await render({
         components: [LiskButtonVote],
         html: '<lisk-button-vote></lisk-button-vote>'
@@ -65,32 +67,10 @@ describe('LiskButtonVote', () => {
     });
 
     it('should call openURL method on click event', async () => {
-      openURL = jest.fn();
-      await flush(element);
-      const btn = element.querySelector('button');
-      btn.click();
-      expect(openURL).toBeCalled();
-    });
-
-    it('should set loading to true on click event', () => {
       const el = new LiskButtonVote();
+      el.openUrl = jest.fn();
       el.open();
-      expect(el.loading).toBeTruthy();
+      expect(el.openUrl).toHaveBeenCalled();
     });
-
-    it('should set loading to false onSuccess', () => {
-      const el = new LiskButtonVote();
-      el.open();
-      expect(el.loading).toBeTruthy();
-      el.onSuccess();
-      expect(el.loading).toBeFalsy();
-    });
-
-    it('should show tooltip onError', () => {
-      const el = new LiskButtonVote();
-      expect(el.showTooltip).toBeFalsy();
-      el.onError();
-      expect(el.showTooltip).toBeTruthy();
-    })
   });
 });

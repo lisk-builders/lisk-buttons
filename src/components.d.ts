@@ -4,7 +4,7 @@
  * and imports for stencil collections that might be configured in your stencil.config.js file
  */
 
-import { LiskButtonSend as LiskButtonSend } from './components/lisk-buttons/lisk-button-send';
+import { LiskButtonSend as LiskButtonSend } from './components/lisk-button-send/lisk-button-send';
 
 interface HTMLLiskButtonSendElement extends LiskButtonSend, HTMLElement {
 }
@@ -26,6 +26,8 @@ declare global {
   }
   namespace JSXElements {
       export interface LiskButtonSendAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
         
           amount?: number,
           recipient?: string,
@@ -34,7 +36,7 @@ declare global {
   }
 }
 
-import { LiskButtonVote as LiskButtonVote } from './components/lisk-buttons/lisk-button-vote';
+import { LiskButtonVote as LiskButtonVote } from './components/lisk-button-vote/lisk-button-vote';
 
 interface HTMLLiskButtonVoteElement extends LiskButtonVote, HTMLElement {
 }
@@ -56,10 +58,41 @@ declare global {
   }
   namespace JSXElements {
       export interface LiskButtonVoteAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
         
           unvotes?: string,
           votes?: string,
           title?: string
+      }
+  }
+}
+
+import { LiskButton as LiskButton } from './components/lisk-button/lisk-button';
+
+interface HTMLLiskButtonElement extends LiskButton, HTMLElement {
+}
+declare var HTMLLiskButtonElement: {
+  prototype: HTMLLiskButtonElement;
+  new (): HTMLLiskButtonElement;
+};
+declare global {
+  interface HTMLElementTagNameMap {
+      "lisk-button": HTMLLiskButtonElement;
+  }
+  interface ElementTagNameMap {
+      "lisk-button": HTMLLiskButtonElement;
+  }
+  namespace JSX {
+      interface IntrinsicElements {
+          "lisk-button": JSXElements.LiskButtonAttributes;
+      }
+  }
+  namespace JSXElements {
+      export interface LiskButtonAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
+        
       }
   }
 }
