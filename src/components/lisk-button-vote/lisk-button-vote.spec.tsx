@@ -10,6 +10,8 @@ describe('LiskButtonVote', () => {
   describe('rendering', () => {
     let element;
     beforeEach(async () => {
+      // FIXME: element equal null when component use shadow dom
+      LiskButtonVote['metadata']['encapsulation'] = 0;
       element = await render({
         components: [LiskButtonVote],
         html: '<lisk-button-vote></lisk-button-vote>'

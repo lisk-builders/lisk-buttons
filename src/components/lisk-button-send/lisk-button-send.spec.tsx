@@ -10,6 +10,8 @@ describe('LiskButtonSend', () => {
   describe('rendering', () => {
     let element;
     beforeEach(async () => {
+      // FIXME: element equal null when component use shadow dom
+      LiskButtonSend['metadata']['encapsulation'] = 0;
       element = await render({
         components: [LiskButtonSend],
         html: '<lisk-button-send></lisk-button-send>'
