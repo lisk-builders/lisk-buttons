@@ -1,4 +1,4 @@
-import { flush, render } from '@stencil/core/testing';
+import { TestWindow } from '@stencil/core/testing';
 import { LiskButtonSend } from './lisk-button-send';
 import { getURL } from '../utils/index'
 
@@ -9,26 +9,26 @@ describe('LiskButtonSend', () => {
 
   describe('rendering', () => {
     let element;
+    let window;
     beforeEach(async () => {
-      // FIXME: element equal null when component use shadow dom
-      LiskButtonSend['metadata']['encapsulation'] = 0;
-      element = await render({
+      window = new TestWindow();
+      element = await window.load({
         components: [LiskButtonSend],
         html: '<lisk-button-send></lisk-button-send>'
       });
     });
 
     it('should display title', async () => {
-      element.title = 'Send';
-      await flush(element);
+      element.buttonTitle = 'Send';
+      await window.flush();
       expect(element.textContent).toEqual('Send');
     });
 
     it('should display default title', async () => {
-      element.title = '';
+      element.buttonTitle = '';
       element.amount = 1000;
       element.recipient = "15015136092749848942L";
-      await flush(element);
+      await window.flush();
       expect(element.textContent).toEqual('Send 1000 LSK to 15015136092749848942L');
     });
 
@@ -36,11 +36,11 @@ describe('LiskButtonSend', () => {
       getURL = jest.fn();
       element.amount = 100;
       element.recipient = '15015136092749848942L'
-      await flush(element);
+      await window.flush();
       const btn = element.querySelector('button');
       btn.click();
       expect(getURL)
-      .toHaveBeenCalledWith('send', { recipient: element.recipient, amount: element.amount})
+      .toHaveBeenCalledWith({ recipient: element.recipient, amount: element.amount, kind: 'send'})
     });
 
     it('should call openURL method on click event', async () => {

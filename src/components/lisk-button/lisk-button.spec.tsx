@@ -1,5 +1,4 @@
-import { flush, render } from '@stencil/core/testing';
-import { LiskButton } from './lisk-button';
+import { LiskButton } from './lisk-button'
 import { openURL, errorTooltip } from '../utils/index';
 
 describe('LiskButton', () => {
