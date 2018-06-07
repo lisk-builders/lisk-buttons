@@ -5,7 +5,7 @@ exports.config = {
     sass()
   ],
   bundles: [
-    { components: ['lisk-button-send', 'lisk-button-vote'] }
+    { components: ['lisk-button-send', 'lisk-button-vote', 'lisk-button-sign'] }
   ],
   namespace: 'liskButtons',
   outputTargets: [
