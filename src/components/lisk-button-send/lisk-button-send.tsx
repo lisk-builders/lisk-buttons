@@ -15,17 +15,17 @@ export class LiskButtonSend extends LiskButton {
 
   @Prop() amount: number;
   @Prop() recipient: string;
-  @Prop() title: string
+  @Prop() buttonTitle: string
 
   open() {
     const { amount, recipient } = this;
-    const url = getURL('send', { amount, recipient });
+    const url = getURL({ amount, recipient, kind: 'send' });
     this.openUrl(url);
   }
 
   render() {
     return <button class={`btn btn-primary ${this.loading ? 'loading' : ''} ${this.showTooltip ? 'tooltip' : ''}`}
                    onClick={this.open}
-                   data-tooltip={this.getTooltipText()}>{this.title || `Send ${this.amount} LSK to ${this.recipient}`}</button>
+                   data-tooltip={this.getTooltipText()}>{this.buttonTitle || `Send ${this.amount} LSK to ${this.recipient}`}</button>
   }
 }

@@ -5,14 +5,8 @@
   <title>Stencil Starter App</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <meta name="theme-color" content="#16161d">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <script src="/build/liskbuttons.js"></script>
 
-  <script src="/build/app.js"></script>
-
-  <link rel="apple-touch-icon" href="/assets/icon/icon.png">
-  <link rel="icon" type="image/x-icon" href="/assets/icon/favicon.ico">
-  <link rel="manifest" href="/manifest.json">
   <style>
     .container {
       max-width: 976px;
@@ -27,10 +21,10 @@
   <div class="container">
     <div class="columns">
       <div class="column col-6 center-md">
-        <lisk-button-send amount=100 recipient="15015136092749848942L"/>
-        <lisk-button-send amount=100 recipient="15015136092749848942L" title="Send Me LSK for food"/>
-        <lisk-button-vote votes="goodPerson1,goodPerson2,goodPerson3" unvotes="badPerson1,badPerson2,badPerson3"/>
-        <lisk-button-vote votes="goodPerson1,goodPerson2,goodPerson3" title="Vote for ME"/>
+        <lisk-button-send amount=100 recipient="15015136092749848942L"></lisk-button-send>
+        <lisk-button-send amount=100 recipient="15015136092749848942L" button-title="Send Me LSK for food"></lisk-button-send>
+        <lisk-button-vote votes="goodPerson1,goodPerson2,goodPerson3" unvotes="badPerson1,badPerson2,badPerson3"></lisk-button-vote>
+        <lisk-button-vote votes="goodPerson1,goodPerson2,goodPerson3" button-title="Vote for ME"></lisk-button-vote>
       </div>
     </div>
   </div>

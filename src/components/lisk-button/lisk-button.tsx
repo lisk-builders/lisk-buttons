@@ -1,4 +1,4 @@
-import { Component, Prop, State } from '@stencil/core';
+import { Component, State } from '@stencil/core';
 import { openURL as checkAndOpen, errorTooltip } from '../utils/index';
 
 @Component({

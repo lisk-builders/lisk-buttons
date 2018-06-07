@@ -16,11 +16,11 @@ export class LiskButtonVote extends LiskButton {
 
   @Prop() unvotes: string;
   @Prop() votes: string;
-  @Prop() title:string;
+  @Prop() buttonTitle: string;
 
   open() {
     const { votes, unvotes } = this;
-    const url = getURL('vote', { votes, unvotes });
+    const url = getURL({ votes, unvotes, kind: 'vote' });
     this.openUrl(url);
   }
 
@@ -37,6 +37,6 @@ export class LiskButtonVote extends LiskButton {
   render() {
     return <button class={`btn btn-success ${this.loading ? 'loading' : ''} ${this.showTooltip ? 'tooltip' : ''}`}
                    onClick={this.open}
-                   data-tooltip={this.getTooltipText()}>{this.title || this.getDefaultTitle()}</button>
+                   data-tooltip={this.getTooltipText()}>{this.buttonTitle || this.getDefaultTitle()}</button>
   }
 }

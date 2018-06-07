@@ -4,96 +4,135 @@
  * and imports for stencil collections that might be configured in your stencil.config.js file
  */
 
-import { LiskButtonSend as LiskButtonSend } from './components/lisk-button-send/lisk-button-send';
+import '@stencil/core';
 
-interface HTMLLiskButtonSendElement extends LiskButtonSend, HTMLElement {
-}
-declare var HTMLLiskButtonSendElement: {
-  prototype: HTMLLiskButtonSendElement;
-  new (): HTMLLiskButtonSendElement;
-};
 declare global {
+  namespace JSX {
+    interface Element {}
+    export interface IntrinsicElements {}
+  }
+  namespace JSXElements {}
+
+  interface HTMLElement {
+    componentOnReady?: () => Promise<this | null>;
+  }
+
+  interface HTMLStencilElement extends HTMLElement {
+    componentOnReady(): Promise<this>;
+
+    forceUpdate(): void;
+  }
+
+  interface HTMLAttributes {}
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface LiskButtonSend {
+      'amount': number;
+      'buttonTitle': string;
+      'recipient': string;
+    }
+  }
+
+  interface HTMLLiskButtonSendElement extends StencilComponents.LiskButtonSend, HTMLStencilElement {}
+
+  var HTMLLiskButtonSendElement: {
+    prototype: HTMLLiskButtonSendElement;
+    new (): HTMLLiskButtonSendElement;
+  };
   interface HTMLElementTagNameMap {
-      "lisk-button-send": HTMLLiskButtonSendElement;
+    'lisk-button-send': HTMLLiskButtonSendElement;
   }
   interface ElementTagNameMap {
-      "lisk-button-send": HTMLLiskButtonSendElement;
+    'lisk-button-send': HTMLLiskButtonSendElement;
   }
   namespace JSX {
-      interface IntrinsicElements {
-          "lisk-button-send": JSXElements.LiskButtonSendAttributes;
-      }
+    interface IntrinsicElements {
+      'lisk-button-send': JSXElements.LiskButtonSendAttributes;
+    }
   }
   namespace JSXElements {
-      export interface LiskButtonSendAttributes extends HTMLAttributes {
-          mode?: string,
-          color?: string,
-        
-          amount?: number,
-          recipient?: string,
-          title?: string
-      }
+    export interface LiskButtonSendAttributes extends HTMLAttributes {
+      'amount'?: number;
+      'buttonTitle'?: string;
+      'recipient'?: string;
+    }
   }
 }
 
-import { LiskButtonVote as LiskButtonVote } from './components/lisk-button-vote/lisk-button-vote';
 
-interface HTMLLiskButtonVoteElement extends LiskButtonVote, HTMLElement {
-}
-declare var HTMLLiskButtonVoteElement: {
-  prototype: HTMLLiskButtonVoteElement;
-  new (): HTMLLiskButtonVoteElement;
-};
 declare global {
+
+  namespace StencilComponents {
+    interface LiskButtonVote {
+      'buttonTitle': string;
+      'unvotes': string;
+      'votes': string;
+    }
+  }
+
+  interface HTMLLiskButtonVoteElement extends StencilComponents.LiskButtonVote, HTMLStencilElement {}
+
+  var HTMLLiskButtonVoteElement: {
+    prototype: HTMLLiskButtonVoteElement;
+    new (): HTMLLiskButtonVoteElement;
+  };
   interface HTMLElementTagNameMap {
-      "lisk-button-vote": HTMLLiskButtonVoteElement;
+    'lisk-button-vote': HTMLLiskButtonVoteElement;
   }
   interface ElementTagNameMap {
-      "lisk-button-vote": HTMLLiskButtonVoteElement;
+    'lisk-button-vote': HTMLLiskButtonVoteElement;
   }
   namespace JSX {
-      interface IntrinsicElements {
-          "lisk-button-vote": JSXElements.LiskButtonVoteAttributes;
-      }
+    interface IntrinsicElements {
+      'lisk-button-vote': JSXElements.LiskButtonVoteAttributes;
+    }
   }
   namespace JSXElements {
-      export interface LiskButtonVoteAttributes extends HTMLAttributes {
-          mode?: string,
-          color?: string,
-        
-          unvotes?: string,
-          votes?: string,
-          title?: string
-      }
+    export interface LiskButtonVoteAttributes extends HTMLAttributes {
+      'buttonTitle'?: string;
+      'unvotes'?: string;
+      'votes'?: string;
+    }
   }
 }
 
-import { LiskButton as LiskButton } from './components/lisk-button/lisk-button';
 
-interface HTMLLiskButtonElement extends LiskButton, HTMLElement {
-}
-declare var HTMLLiskButtonElement: {
-  prototype: HTMLLiskButtonElement;
-  new (): HTMLLiskButtonElement;
-};
 declare global {
+
+  namespace StencilComponents {
+    interface LiskButton {
+
+    }
+  }
+
+  interface HTMLLiskButtonElement extends StencilComponents.LiskButton, HTMLStencilElement {}
+
+  var HTMLLiskButtonElement: {
+    prototype: HTMLLiskButtonElement;
+    new (): HTMLLiskButtonElement;
+  };
   interface HTMLElementTagNameMap {
-      "lisk-button": HTMLLiskButtonElement;
+    'lisk-button': HTMLLiskButtonElement;
   }
   interface ElementTagNameMap {
-      "lisk-button": HTMLLiskButtonElement;
+    'lisk-button': HTMLLiskButtonElement;
   }
   namespace JSX {
-      interface IntrinsicElements {
-          "lisk-button": JSXElements.LiskButtonAttributes;
-      }
+    interface IntrinsicElements {
+      'lisk-button': JSXElements.LiskButtonAttributes;
+    }
   }
   namespace JSXElements {
-      export interface LiskButtonAttributes extends HTMLAttributes {
-          mode?: string,
-          color?: string,
-        
-      }
+    export interface LiskButtonAttributes extends HTMLAttributes {
+
+    }
   }
 }
 
+declare global { namespace JSX { interface StencilJSX {} } }
+
+export declare function defineCustomElements(window: any): void;

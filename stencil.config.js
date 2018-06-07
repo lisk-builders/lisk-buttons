@@ -1,10 +1,17 @@
+const sass = require('@stencil/sass');
+
 exports.config = {
+  plugins: [
+    sass()
+  ],
   bundles: [
     { components: ['lisk-button-send', 'lisk-button-vote'] }
   ],
   namespace: 'liskButtons',
-  generateDistribution: true,
-  generateWWW: false,
+  outputTargets: [
+    { type: 'www' },
+    { type: 'dist' }
+  ],
 };
 
 exports.devServer = {
