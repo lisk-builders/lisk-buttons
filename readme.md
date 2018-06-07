@@ -18,10 +18,10 @@
 ### Params:
  - amount: the amount of LSK the that should be sent
  - recipient: the address the LSK should be sent to
- - title: The text that appears on the button
+ - button-title: The text that appears on the button
 
 ```
-<lisk-button-send amount=100 recipient="15015136092749848942L" title="Donate Me"></lisk-button-send>
+<lisk-button-send amount=100 recipient="15015136092749848942L" button-title="Donate Me"></lisk-button-send>
 ```
 
 # Vote Button
@@ -29,10 +29,10 @@
 ### Params:
  - votes: the list of delegates that should be voted in
  - unvotes: the list delegates that should be unvoted
- - title: The text that appears on the button
+ - button-title: The text that appears on the button
 
 ```
-<lisk-button-vote votes="goodDelegate1,goodDelegate2" unvotes="badDelegate1,badDelegate2" title="Vote"></lisk-button-vote>
+<lisk-button-vote votes="goodDelegate1,goodDelegate2" unvotes="badDelegate1,badDelegate2" button-title="Vote"></lisk-button-vote>
 ```
 # Examples
 [Here!](https://lisk-builders.github.io/lisk-buttons/)
