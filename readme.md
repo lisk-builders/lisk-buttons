@@ -34,5 +34,17 @@
 ```
 <lisk-button-vote votes="goodDelegate1,goodDelegate2" unvotes="badDelegate1,badDelegate2" button-title="Vote"></lisk-button-vote>
 ```
+
+# Sign Button
+
+### Params:
+- type: `'nano'` or `'hub'` (optional, default is `'hub'`)
+- message: the message to sign
+- button-title: The text that appears on the button
+
+```
+<lisk-button-sign type="hub" message="message to sign" title="Sign it!"></lisk-button-sign>
+```
+
 # Examples
 [Here!](https://lisk-builders.github.io/lisk-buttons/)

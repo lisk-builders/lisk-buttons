@@ -67,6 +67,43 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface LiskButtonSign {
+      'buttonTitle': string;
+      'message': string;
+      'type': string;
+    }
+  }
+
+  interface HTMLLiskButtonSignElement extends StencilComponents.LiskButtonSign, HTMLStencilElement {}
+
+  var HTMLLiskButtonSignElement: {
+    prototype: HTMLLiskButtonSignElement;
+    new (): HTMLLiskButtonSignElement;
+  };
+  interface HTMLElementTagNameMap {
+    'lisk-button-sign': HTMLLiskButtonSignElement;
+  }
+  interface ElementTagNameMap {
+    'lisk-button-sign': HTMLLiskButtonSignElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'lisk-button-sign': JSXElements.LiskButtonSignAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface LiskButtonSignAttributes extends HTMLAttributes {
+      'buttonTitle'?: string;
+      'message'?: string;
+      'type'?: string;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface LiskButtonVote {
       'buttonTitle': string;
       'unvotes': string;
