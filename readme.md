@@ -1,5 +1,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/lisk-builders/lisk-buttons/badge.svg?branch=master)](https://coveralls.io/github/lisk-builders/lisk-buttons?branch=master)
-# Lisk Buttons
+
+<div align="center">
+  <img alt="Lisk Buttons" src="https://rawgit.com/lisk-builders/lisk-buttons/master/logo.svg" height="191px" />
+</div>
+
 🖲️ Lisk Buttons is a web component built using [Stencil](https://stenciljs.com/) that provides you with re-usable buttons for sending Lisk payments and receiving votes.
 
 ## Using lisk buttons in your project
