@@ -70,6 +70,7 @@ declare global {
     interface LiskButtonSign {
       'buttonTitle': string;
       'message': string;
+      'sourceId': string;
       'type': string;
     }
   }
@@ -95,6 +96,7 @@ declare global {
     export interface LiskButtonSignAttributes extends HTMLAttributes {
       'buttonTitle'?: string;
       'message'?: string;
+      'sourceId'?: string;
       'type'?: string;
     }
   }

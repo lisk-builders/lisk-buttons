@@ -61,6 +61,24 @@ describe('LiskButtonSign', () => {
         .toHaveBeenCalledWith({ message: element.message, kind: 'sign-nano' })
     });
 
+    it('should call getUrl method with input value if `sourceId` attribute provided', async () => {
+      getURL = jest.fn();
+      element.sourceId = 'test-input'
+      const message = 'Message from input';
+
+      await window.flush();
+      const btn = element.querySelector('button');
+      // Can't test with real value from input element.
+      // Add input to the jsdom were ununsuccessful, value everytime `undefined`
+      // Solution is to mock querySelector that is triggered in the LiskButtonSign.getValue()
+      document.querySelector = jest.fn().mockReturnValue({
+        value: message
+      });
+      btn.click();
+      expect(getURL)
+        .toHaveBeenCalledWith({ message, kind: 'sign-hub' })
+    });
+
     it('should call openURL method on click event', async () => {
       const el = new LiskButtonSign();
       el.openUrl = jest.fn();

@@ -15,12 +15,21 @@ export class LiskButtonSign extends LiskButton {
 
   @Prop() type: string;
   @Prop() message: string;
-  @Prop() buttonTitle: string
+  @Prop() buttonTitle: string;
+  @Prop() sourceId: string = "";
 
-  open() {
+  getValue(): string {
+    const input: HTMLInputElement = document.querySelector(`#${this.sourceId}`);
+    return input.value;
+  }
+
+  open(): void {
     const { type, message } = this;
-
-    const url = getURL({ message, kind: (type === 'nano' ? 'sign-nano' : 'sign-hub') });
+    const data = !!this.sourceId ? this.getValue() : message;
+    const url = getURL({
+      message: data,
+      kind: (type === 'nano' ? 'sign-nano' : 'sign-hub')
+    });
     this.openUrl(url);
   }
 
