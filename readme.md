@@ -43,11 +43,19 @@
 
 ### Params:
 - type: `'nano'` or `'hub'` (optional, default is `'hub'`)
-- message: the message to sign
+- source-id: id of an input field used as message source (mutual-exclusive with `'message`')
+- message: the message to sign (priority is given to `'source-id`')
 - button-title: The text that appears on the button
 
+#### Example with Message
 ```
-<lisk-button-sign type="hub" message="message to sign" title="Sign it!"></lisk-button-sign>
+<lisk-button-sign type="hub" message="message to sign" button-title="Sign it!"></lisk-button-sign>
+```
+
+#### Example with Source ID
+```
+<input type="text" id="message-input" placeholder="Message...">
+<lisk-button-sign type="hub" source-id="message-input" button-title="Sign it!"></lisk-button-sign>
 ```
 
 # Examples
