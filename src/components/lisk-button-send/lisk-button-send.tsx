@@ -4,7 +4,7 @@ import { LiskButton } from '../lisk-button/lisk-button';
 
 @Component({
   tag: 'lisk-button-send',
-  styleUrl: '../lisk-button/lisk-button.scss',
+  // styleUrl: '../lisk-button/lisk-button.scss',
   shadow: true
 })
 export class LiskButtonSend extends LiskButton {
@@ -15,7 +15,7 @@ export class LiskButtonSend extends LiskButton {
 
   @Prop() amount: number;
   @Prop() recipient: string;
-  @Prop() buttonTitle: string
+  @Prop() buttonTitle: string;
 
   open() {
     const { amount, recipient } = this;
@@ -24,8 +24,7 @@ export class LiskButtonSend extends LiskButton {
   }
 
   render() {
-    return <button class={`btn btn-primary ${this.loading ? 'loading' : ''} ${this.showTooltip ? 'tooltip' : ''}`}
-                   onClick={this.open}
-                   data-tooltip={this.getTooltipText()}>{this.buttonTitle || `Send ${this.amount} LSK to ${this.recipient}`}</button>
+    return <button class={`btn btn-primary ${this.loading ? 'loading' : ''}`}
+                   onClick={this.open}>{this.buttonTitle || `Send ${this.amount} LSK to ${this.recipient}`}</button>
   }
 }

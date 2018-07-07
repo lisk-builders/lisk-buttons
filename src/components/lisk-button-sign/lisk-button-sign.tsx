@@ -36,8 +36,7 @@ export class LiskButtonSign extends LiskButton {
   render() {
     //NB: Lisk-nano doesn't support message pre-fill... it will just open sign message page
     const wallet = this.type === 'nano' ? 'Lisk Nano' : "Lisk Hub";
-    return <button class={`btn btn-primary ${this.loading ? 'loading' : ''} ${this.showTooltip ? 'tooltip' : ''}`}
-                   onClick={this.open}
-                   data-tooltip={this.getTooltipText()}>{this.buttonTitle || `Use ${wallet} to sign the message`}</button>
+    return <button class={`btn btn-primary ${this.loading ? 'loading' : ''}`}
+                   onClick={this.open}>{this.buttonTitle || `Use ${wallet} to sign the message`}</button>
   }
 }

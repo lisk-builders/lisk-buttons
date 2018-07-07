@@ -17,23 +17,11 @@ describe('LiskButton', () => {
     expect(new LiskButton()).toBeTruthy();
   })
 
-  describe('getTooltipText()', () => {
-    it('should return correct test', () => {
-      expect(component.getTooltipText()).toEqual(errorTooltip);
-    });
-  });
-
   describe('onSuccess()', () => {
     it('should change loading param to false', () => {
       component.loading = true;
       component.onSuccess();
       expect(component.loading).toBeFalsy();
-    });
-
-    it('should change showTooltip param to false', () => {
-      component.showTooltip = true;
-      component.onSuccess();
-      expect(component.showTooltip).toBeFalsy();
     });
   });
 
@@ -43,12 +31,6 @@ describe('LiskButton', () => {
       component.onError();
       expect(component.loading).toBeFalsy();
     });
-
-    it('should change showTooltip param to true', () => {
-      component.showTooltip = false;
-      component.onError();
-      expect(component.showTooltip).toBeTruthy();
-    });
   });
 
   describe('openUrl', () => {
@@ -56,12 +38,6 @@ describe('LiskButton', () => {
       component.loading = false;
       component.openUrl();
       expect(component.loading).toBeTruthy();
-    });
-
-    it('should set showTooltip param to false', () => {
-      component.showTooltip = true;
-      component.openUrl();
-      expect(component.showTooltip).toBeFalsy();
     });
 
     it('should call openURL function with passed param', () => {
