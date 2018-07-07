@@ -19,7 +19,7 @@
     "test.ci": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "dependencies": {
-    "@alepop/check-for-uri-handler": "0.0.2",
+    "@alepop/check-for-uri-handler": "0.0.3",
     "@stencil/core": "0.9.7",
     "spectre.css": "^0.4.4"
   },
