@@ -35,8 +35,7 @@ export class LiskButtonVote extends LiskButton {
   }
 
   render() {
-    return <button class={`btn btn-success ${this.loading ? 'loading' : ''} ${this.showTooltip ? 'tooltip' : ''}`}
-                   onClick={this.open}
-                   data-tooltip={this.getTooltipText()}>{this.buttonTitle || this.getDefaultTitle()}</button>
+    return <button class={`btn btn-success ${this.loading ? 'loading' : ''}`}
+                   onClick={this.open}>{this.buttonTitle || this.getDefaultTitle()}</button>
   }
 }
