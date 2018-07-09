@@ -20,12 +20,10 @@
   },
   "dependencies": {
     "@alepop/check-for-uri-handler": "0.0.4",
-    "@stencil/core": "0.9.7",
-    "spectre.css": "^0.4.4"
+    "@stencil/core": "0.9.7"
   },
   "devDependencies": {
     "@stencil/dev-server": "latest",
-    "@stencil/sass": "0.0.5",
     "@stencil/utils": "latest",
     "@types/jest": "^21.1.1",
     "coveralls": "^3.0.0",

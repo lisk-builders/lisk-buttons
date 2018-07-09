@@ -1,41 +1,48 @@
 import { Component, Prop } from '@stencil/core';
-import {  getURL } from '../utils/index';
+
 import { LiskButton } from '../lisk-button/lisk-button';
+import { getURL } from '../utils/index';
 
 @Component({
   tag: 'lisk-button-vote',
-  styleUrl: '../lisk-button/lisk-button.scss',
-  shadow: true
 })
 export class LiskButtonVote extends LiskButton {
   constructor() {
     super();
-    this.open = this.open.bind(this);
-    this.getDefaultTitle = this.getDefaultTitle.bind(this);
   }
 
   @Prop() unvotes: string;
   @Prop() votes: string;
   @Prop() buttonTitle: string;
+  @Prop() classNames = 'lisk-btn-vote-wrapper';
 
-  open() {
+  private open = (): void => {
     const { votes, unvotes } = this;
     const url = getURL({ votes, unvotes, kind: 'vote' });
     this.openUrl(url);
   }
 
-  getDefaultTitle() {
+  private getTitel = () => this.buttonTitle || this.getDefaultTitle();
+
+  private getDefaultTitle = () => {
     if (this.votes) {
       const [first, ...others] = this.votes.split(',');
-      return `Vote for ${first}${others.length ? ` and ${others.length} others...` : ''}`;
+      return `Vote for ${first}${
+        others.length ? ` and ${others.length} others...` : ''
+      }`;
     } else if (this.unvotes) {
       const [first, ...others] = this.unvotes.split(',');
-      return `Unvote ${first}${others.length ? ` and ${others.length} others...` : ''}`;
+      return `Unvote ${first}${
+        others.length ? ` and ${others.length} others...` : ''
+      }`;
     }
   }
 
+  hostData() {
+    return super.hostData(this.classNames);
+  }
+
   render() {
-    return <button class={`btn btn-success ${this.loading ? 'loading' : ''}`}
-                   onClick={this.open}>{this.buttonTitle || this.getDefaultTitle()}</button>
+    return <button onClick={this.open}>{this.getTitel()}</button>;
   }
 }

@@ -1,9 +1,6 @@
 const sass = require('@stencil/sass');
 
 exports.config = {
-  plugins: [
-    sass()
-  ],
   bundles: [
     { components: ['lisk-button-send', 'lisk-button-vote', 'lisk-button-sign'] }
   ],
