@@ -1,0 +1,7 @@
+{
+    "defaultSeverity": "error",
+    "extends": "tslint-ionic-rules/strict",
+    "jsRules": {},
+    "rules": {},
+    "rulesDirectory": []
+}
