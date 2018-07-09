@@ -33,6 +33,7 @@ declare global {
     interface LiskButtonSend {
       'amount': number;
       'buttonTitle': string;
+      'classNames': string;
       'recipient': string;
     }
   }
@@ -58,6 +59,7 @@ declare global {
     export interface LiskButtonSendAttributes extends HTMLAttributes {
       'amount'?: number;
       'buttonTitle'?: string;
+      'classNames'?: string;
       'recipient'?: string;
     }
   }
@@ -69,6 +71,7 @@ declare global {
   namespace StencilComponents {
     interface LiskButtonSign {
       'buttonTitle': string;
+      'classNames': string;
       'message': string;
       'sourceId': string;
       'type': string;
@@ -95,6 +98,7 @@ declare global {
   namespace JSXElements {
     export interface LiskButtonSignAttributes extends HTMLAttributes {
       'buttonTitle'?: string;
+      'classNames'?: string;
       'message'?: string;
       'sourceId'?: string;
       'type'?: string;
@@ -108,6 +112,7 @@ declare global {
   namespace StencilComponents {
     interface LiskButtonVote {
       'buttonTitle': string;
+      'classNames': string;
       'unvotes': string;
       'votes': string;
     }
@@ -133,6 +138,7 @@ declare global {
   namespace JSXElements {
     export interface LiskButtonVoteAttributes extends HTMLAttributes {
       'buttonTitle'?: string;
+      'classNames'?: string;
       'unvotes'?: string;
       'votes'?: string;
     }

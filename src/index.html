@@ -12,17 +12,52 @@
       max-width: 976px;
       padding: 10rem;
     }
-    .btn {
-      display: none;
+
+    .btn button {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background: #fff;
+      border: .05rem solid #5755d9;
+      border-radius: .1rem;
+      color: #5755d9;
+      cursor: pointer;
+      display: inline-block;
+      font-size: .8rem;
+      height: 1.8rem;
+      line-height: 1.2rem;
+      outline: none;
+      padding: .25rem .4rem;
+      text-align: center;
+      text-decoration: none;
+      transition: all .2s ease;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      vertical-align: middle;
+      white-space: nowrap;
     }
+
+    .btn button:focus {
+      box-shadow: 0 0 0 .1rem rgba(87, 85, 217, .2);
+    }
+
+    .btn button:focus,
+    .btn button:hover {
+      background: #f1f1fc;
+      border-color: #4b48d6;
+      text-decoration: none;
+    }
+
     </style>
 </head>
 <body>
   <div class="container">
     <div class="columns">
       <div class="column col-6 center-md">
-        <lisk-button-send amount=100 recipient="15015136092749848942L"></lisk-button-send>
-        <lisk-button-send amount=100 recipient="15015136092749848942L" button-title="Send Me LSK for food"></lisk-button-send>
+        <lisk-button-send amount=100 recipient="15015136092749848942L" class-names="btn btn-primary"></lisk-button-send>
+        <lisk-button-send amount=100 recipient="15015136092749848942L" button-title="Send Me LSK for food" class-names="btn btn-primary"></lisk-button-send>
         <lisk-button-vote votes="goodPerson1,goodPerson2,goodPerson3" unvotes="badPerson1,badPerson2,badPerson3"></lisk-button-vote>
         <lisk-button-vote votes="goodPerson1,goodPerson2,goodPerson3" button-title="Vote for ME"></lisk-button-vote>
         <lisk-button-sign type="hub" message="sign with hub" button-title="Sign by using Lisk Hub!"></lisk-button-sign>

@@ -1,28 +1,31 @@
 import { Component, State } from '@stencil/core';
+
 import { openURL as checkAndOpen } from '../utils/index';
 
 @Component({
-  tag: 'lisk-button'
+  tag: 'lisk-button',
 })
 export class LiskButton {
-  constructor() {
-    this.onSuccess = this.onSuccess.bind(this);
-    this.onError = this.onError.bind(this);
-  }
+  @State() loading = false;
 
-  @State() loading: boolean = false;
-
-  public openUrl(url: string): void {
+  openUrl(url: string): void {
     this.loading = true;
-    checkAndOpen(url, this.onError, this.onSuccess)
+    checkAndOpen(url, this.onError, this.onSuccess);
   }
 
-  private onSuccess(): void {
+  private onSuccess = (): void => {
     this.loading = false;
   }
 
-  private onError(): void {
+  private onError = (): void => {
     this.loading = false;
+  }
+
+  hostData(classNames = '') {
+    return {
+      class: {
+        [classNames]: true,
+      },
+    };
   }
 }
-
