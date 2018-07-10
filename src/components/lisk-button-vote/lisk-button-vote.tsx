@@ -22,7 +22,7 @@ export class LiskButtonVote extends LiskButton {
     this.openUrl(url);
   }
 
-  private getTitel = () => this.buttonTitle || this.getDefaultTitle();
+  private getTitle = () => this.buttonTitle || this.getDefaultTitle();
 
   private getDefaultTitle = () => {
     if (this.votes) {
@@ -43,6 +43,6 @@ export class LiskButtonVote extends LiskButton {
   }
 
   render() {
-    return <button onClick={this.open}>{this.getTitel()}</button>;
+    return <button onClick={this.open}>{this.getTitle()}</button>;
   }
 }
