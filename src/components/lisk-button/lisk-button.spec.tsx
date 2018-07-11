@@ -1,6 +1,6 @@
-import { LiskButton } from './lisk-button';
-
 import { appLinks, openURL } from '../utils/index';
+
+import { LiskButton } from './lisk-button';
 
 Object.defineProperty(window.location, 'href', {
   writable: true,
@@ -49,7 +49,7 @@ describe('LiskButton', () => {
     it('should call openURL function with passed param', () => {
       openURL.mockClear();
       component.openUrl('link');
-      expect(openURL).toHaveBeenCalledWith('link', component.onError, component.onSuccess)
-    })
+      expect(openURL).toHaveBeenCalledWith('link', component.onError, component.onSuccess);
+    });
   });
 });
