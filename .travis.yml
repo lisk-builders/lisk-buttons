@@ -8,4 +8,5 @@ cache:
   directories:
     - "node_modules"
 script:
+  - npm run tslint
   - npm run test.ci

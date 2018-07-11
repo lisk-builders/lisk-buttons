@@ -16,7 +16,8 @@
     "start": "npm run dev",
     "test": "jest --no-cache",
     "test.watch": "jest --watch --no-cache",
-    "test.ci": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "test.ci": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "tslint": "./node_modules/tslint/bin/tslint -p ./"
   },
   "dependencies": {
     "@alepop/check-for-uri-handler": "0.0.4",
