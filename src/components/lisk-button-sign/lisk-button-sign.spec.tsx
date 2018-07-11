@@ -1,6 +1,8 @@
 import { TestWindow } from '@stencil/core/testing';
+
+import { getURL } from '../utils/index';
+
 import { LiskButtonSign } from './lisk-button-sign';
-import { getURL } from '../utils/index'
 
 describe('LiskButtonSign', () => {
   it('should build', () => {
@@ -14,7 +16,7 @@ describe('LiskButtonSign', () => {
       window = new TestWindow();
       element = await window.load({
         components: [LiskButtonSign],
-        html: '<lisk-button-sign></lisk-button-sign>'
+        html: '<lisk-button-sign></lisk-button-sign>',
       });
     });
 
@@ -47,7 +49,7 @@ describe('LiskButtonSign', () => {
       const btn = element.querySelector('button');
       btn.click();
       expect(getURL)
-      .toHaveBeenCalledWith({ message: element.message, kind: 'sign-hub' })
+      .toHaveBeenCalledWith({ message: element.message, kind: 'sign-hub' });
     });
 
     it('should call getUrl method on click event with nano wallet', async () => {
@@ -58,12 +60,12 @@ describe('LiskButtonSign', () => {
       const btn = element.querySelector('button');
       btn.click();
       expect(getURL)
-        .toHaveBeenCalledWith({ message: element.message, kind: 'sign-nano' })
+        .toHaveBeenCalledWith({ message: element.message, kind: 'sign-nano' });
     });
 
     it('should call getUrl method with input value if `sourceId` attribute provided', async () => {
       getURL = jest.fn();
-      element.sourceId = 'test-input'
+      element.sourceId = 'test-input';
       const message = 'Message from input';
 
       await window.flush();
@@ -72,11 +74,11 @@ describe('LiskButtonSign', () => {
       // Add input to the jsdom were ununsuccessful, value everytime `undefined`
       // Solution is to mock querySelector that is triggered in the LiskButtonSign.getValue()
       document.querySelector = jest.fn().mockReturnValue({
-        value: message
+        value: message,
       });
       btn.click();
       expect(getURL)
-        .toHaveBeenCalledWith({ message, kind: 'sign-hub' })
+        .toHaveBeenCalledWith({ message, kind: 'sign-hub' });
     });
 
     it('should call openURL method on click event', async () => {

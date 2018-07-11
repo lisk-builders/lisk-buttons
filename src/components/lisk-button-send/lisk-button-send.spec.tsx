@@ -1,6 +1,8 @@
 import { TestWindow } from '@stencil/core/testing';
+
+import { getURL } from '../utils/index';
+
 import { LiskButtonSend } from './lisk-button-send';
-import { getURL } from '../utils/index'
 
 describe('LiskButtonSend', () => {
   it('should build', () => {
@@ -14,7 +16,7 @@ describe('LiskButtonSend', () => {
       window = new TestWindow();
       element = await window.load({
         components: [LiskButtonSend],
-        html: '<lisk-button-send></lisk-button-send>'
+        html: '<lisk-button-send></lisk-button-send>',
       });
     });
 
@@ -27,7 +29,7 @@ describe('LiskButtonSend', () => {
     it('should display default title', async () => {
       element.buttonTitle = '';
       element.amount = 1000;
-      element.recipient = "15015136092749848942L";
+      element.recipient = '15015136092749848942L';
       await window.flush();
       expect(element.textContent).toEqual('Send 1000 LSK to 15015136092749848942L');
     });
@@ -35,12 +37,12 @@ describe('LiskButtonSend', () => {
     it('should call getUrl method on click event', async () => {
       getURL = jest.fn();
       element.amount = 100;
-      element.recipient = '15015136092749848942L'
+      element.recipient = '15015136092749848942L';
       await window.flush();
       const btn = element.querySelector('button');
       btn.click();
       expect(getURL)
-      .toHaveBeenCalledWith({ recipient: element.recipient, amount: element.amount, kind: 'send'})
+      .toHaveBeenCalledWith({ recipient: element.recipient, amount: element.amount, kind: 'send' });
     });
 
     it('should call openURL method on click event', async () => {
