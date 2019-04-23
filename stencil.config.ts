@@ -1,8 +1,9 @@
+import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 
-exports.config = {
+export const config: Config = {
   bundles: [
-    { components: ['lisk-button-send', 'lisk-button-vote', 'lisk-button-sign'] }
+    { components: ['lisk-button', 'lisk-button-send', 'lisk-button-vote', 'lisk-button-sign'] }
   ],
   namespace: 'liskButtons',
   outputTargets: [
