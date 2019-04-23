@@ -1,4 +1,4 @@
-const sass = require('@stencil/sass');
+import { sass } from '@stencil/sass';
 
 exports.config = {
   bundles: [

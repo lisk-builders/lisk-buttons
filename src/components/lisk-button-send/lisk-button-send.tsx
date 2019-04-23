@@ -1,14 +1,47 @@
 import { Component, Prop } from '@stencil/core';
 
-import { LiskButton } from '../lisk-button/lisk-button';
-import { getURL } from '../utils/index';
+import {
+  AppUrls,
+  appLinks,
+  getURL,
+  mobile,
+  openURL as checkAndOpen,
+} from '../utils/index';
 
 @Component({
   tag: 'lisk-button-send',
 })
-export class LiskButtonSend extends LiskButton {
-  constructor() {
-    super();
+export class LiskButtonSend {
+
+  private urls: AppUrls = appLinks;
+
+  openUrl(url: string): void {
+    checkAndOpen(url, this.onError, this.onSuccess);
+  }
+
+  private onSuccess(): void {} // tslint:disable-line
+
+  private onError = (): void => {
+    let redirectUrl = this.urls.desktop;
+
+    // Redirect to the mobile app store
+    if (mobile.isAndroid && this.urls.android) {
+      redirectUrl = this.urls.android;
+    }
+
+    if (mobile.isIOS && this.urls.ios) {
+      redirectUrl = this.urls.ios;
+    }
+
+    window.location.href = redirectUrl;
+  }
+
+  hostData(classNames = '') {
+    return {
+      class: {
+        [classNames]: true,
+      },
+    };
   }
 
   @Prop() amount: number;
@@ -16,7 +49,7 @@ export class LiskButtonSend extends LiskButton {
   @Prop() buttonTitle: string;
   @Prop() classNames = 'lisk-btn-send-wrapper';
 
-  private open = (): void => {
+  open = (): void => {
     const { amount, recipient } = this;
     const url = getURL({ amount, recipient, kind: 'send' });
     this.openUrl(url);
@@ -24,10 +57,6 @@ export class LiskButtonSend extends LiskButton {
 
   private getTitle = () =>
     this.buttonTitle || `Send ${this.amount} LSK to ${this.recipient}`
-
-  hostData() {
-    return super.hostData(this.classNames);
-  }
 
   render() {
     return <button onClick={this.open}>{this.getTitle()}</button>;

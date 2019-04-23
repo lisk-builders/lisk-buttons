@@ -1,7 +1,7 @@
 
 import { TestWindow } from '@stencil/core/testing';
 
-import { getURL } from '../utils/index';
+import * as Utils from '../utils/index';
 
 import { LiskButtonVote } from './lisk-button-vote';
 
@@ -58,7 +58,7 @@ describe('LiskButtonVote', () => {
     });
 
     it('should call getUrl method on click event', async () => {
-      getURL = jest.fn();
+      const getURL = jest.spyOn(Utils, 'getURL');
       element.unvotes = 'bad1';
       element.votees = 'good1';
       await window.flush();

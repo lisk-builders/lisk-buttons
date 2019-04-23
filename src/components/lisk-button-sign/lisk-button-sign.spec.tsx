@@ -1,6 +1,6 @@
 import { TestWindow } from '@stencil/core/testing';
 
-import { getURL } from '../utils/index';
+import * as Utils from '../utils/index';
 
 import { LiskButtonSign } from './lisk-button-sign';
 
@@ -42,7 +42,7 @@ describe('LiskButtonSign', () => {
     });
 
     it('should call getUrl method on click event with default wallet (lisk hub)', async () => {
-      getURL = jest.fn();
+      const getURL = jest.spyOn(Utils, 'getURL');
       element.type = 'wrongtype';
       element.message = 'messageToSign';
       await window.flush();
@@ -53,7 +53,7 @@ describe('LiskButtonSign', () => {
     });
 
     it('should call getUrl method on click event with nano wallet', async () => {
-      getURL = jest.fn();
+      const getURL = jest.spyOn(Utils, 'getURL');
       element.type = 'nano';
       element.message = 'messageToSign';
       await window.flush();
@@ -64,7 +64,7 @@ describe('LiskButtonSign', () => {
     });
 
     it('should call getUrl method with input value if `sourceId` attribute provided', async () => {
-      getURL = jest.fn();
+      const getURL = jest.spyOn(Utils, 'getURL');
       element.sourceId = 'test-input';
       const message = 'Message from input';
 

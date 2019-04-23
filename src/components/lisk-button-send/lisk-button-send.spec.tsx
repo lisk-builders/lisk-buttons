@@ -1,6 +1,6 @@
 import { TestWindow } from '@stencil/core/testing';
 
-import { getURL } from '../utils/index';
+import * as Utils from '../utils/index';
 
 import { LiskButtonSend } from './lisk-button-send';
 
@@ -35,7 +35,7 @@ describe('LiskButtonSend', () => {
     });
 
     it('should call getUrl method on click event', async () => {
-      getURL = jest.fn();
+      const getURL = jest.spyOn(Utils, 'getURL');
       element.amount = 100;
       element.recipient = '15015136092749848942L';
       await window.flush();

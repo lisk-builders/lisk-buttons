@@ -1,14 +1,47 @@
 import { Component, Prop } from '@stencil/core';
 
-import { LiskButton } from '../lisk-button/lisk-button';
-import { getURL } from '../utils/index';
+import {
+  AppUrls,
+  appLinks,
+  getURL,
+  mobile,
+  openURL as checkAndOpen,
+} from '../utils/index';
 
 @Component({
   tag: 'lisk-button-sign',
 })
-export class LiskButtonSign extends LiskButton {
-  constructor() {
-    super();
+export class LiskButtonSign {
+
+  private urls: AppUrls = appLinks;
+
+  openUrl(url: string): void {
+    checkAndOpen(url, this.onError, this.onSuccess);
+  }
+
+  private onSuccess(): void {} // tslint:disable-line
+
+  private onError = (): void => {
+    let redirectUrl = this.urls.desktop;
+
+    // Redirect to the mobile app store
+    if (mobile.isAndroid && this.urls.android) {
+      redirectUrl = this.urls.android;
+    }
+
+    if (mobile.isIOS && this.urls.ios) {
+      redirectUrl = this.urls.ios;
+    }
+
+    window.location.href = redirectUrl;
+  }
+
+  hostData(classNames = '') {
+    return {
+      class: {
+        [classNames]: true,
+      },
+    };
   }
 
   @Prop() type: string;
@@ -22,7 +55,7 @@ export class LiskButtonSign extends LiskButton {
     return input.value;
   }
 
-  private open = (): void => {
+  open = (): void => {
     const { type, message } = this;
     const data = this.sourceId ? this.getValue() : message;
     const url = getURL({
@@ -35,10 +68,6 @@ export class LiskButtonSign extends LiskButton {
   private getTitle = () => {
     const wallet = this.type === 'nano' ? 'Lisk Nano' : 'Lisk Hub';
     return this.buttonTitle || `Use ${wallet} to sign the message`;
-  }
-
-  hostData() {
-    return super.hostData(this.classNames);
   }
 
   render() {
