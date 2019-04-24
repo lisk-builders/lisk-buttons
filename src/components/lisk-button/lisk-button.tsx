@@ -34,10 +34,10 @@ export class LiskButton {
     window.location.href = redirectUrl;
   }
 
-  hostData(classNames = '') {
+  hostData(classnames = '') {
     return {
       class: {
-        [classNames]: true,
+        [classnames]: true,
       },
     };
   }

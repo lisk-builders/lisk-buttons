@@ -17,8 +17,8 @@ export class LiskButtonVote {
 
   @Prop() unvotes: string;
   @Prop() votes: string;
-  @Prop() buttonTitle: string;
-  @Prop() classNames = 'lisk-btn-vote-wrapper';
+  @Prop() buttontitle: string;
+  @Prop() classnames = 'lisk-btn-vote-wrapper';
 
   openUrl(url: string): void {
     checkAndOpen(url, this.onError, this.onSuccess);
@@ -41,13 +41,13 @@ export class LiskButtonVote {
     window.location.href = redirectUrl;
   }
 
-  hostData() {
-    return {
-      class: {
-        [this.classNames]: true,
-      },
-    };
-  }
+  // hostData() {
+  //   return {
+  //     class: {
+  //       [this.classnames]: true,
+  //     },
+  //   };
+  // }
 
   open = (): void => {
     const { votes, unvotes } = this;
@@ -55,7 +55,7 @@ export class LiskButtonVote {
     this.openUrl(url);
   }
 
-  private getTitle = () => this.buttonTitle || this.getDefaultTitle();
+  private getTitle = () => this.buttontitle || this.getDefaultTitle();
 
   private getDefaultTitle = () => {
     if (this.votes) {
@@ -72,6 +72,6 @@ export class LiskButtonVote {
   }
 
   render() {
-    return <button onClick={this.open}>{this.getTitle()}</button>;
+    return <button class={this.classnames} onClick={this.open}>{this.getTitle()}</button>;
   }
 }

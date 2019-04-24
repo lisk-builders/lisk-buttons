@@ -22,13 +22,13 @@ describe('LiskButtonVote', () => {
     });
 
     it('should display title', async () => {
-      element.buttonTitle = 'Vote';
+      element.buttontitle = 'Vote';
       await window.flush();
       expect(element.textContent).toEqual('Vote');
     });
 
     it('should display default title for 1 vote', async () => {
-      element.buttonTitle = '';
+      element.buttontitle = '';
       element.votes = 'good1';
       await window.flush();
       expect(element.textContent).toEqual('Vote for good1');

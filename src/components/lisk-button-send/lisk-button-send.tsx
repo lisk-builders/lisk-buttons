@@ -17,8 +17,8 @@ export class LiskButtonSend {
 
   @Prop() amount: number;
   @Prop() recipient: string;
-  @Prop() buttonTitle: string;
-  @Prop() classNames = 'lisk-btn-send-wrapper';
+  @Prop() buttontitle: string;
+  @Prop() classnames = 'lisk-btn-send-wrapper';
 
   openUrl(url: string): void {
     checkAndOpen(url, this.onError, this.onSuccess);
@@ -41,13 +41,13 @@ export class LiskButtonSend {
     window.location.href = redirectUrl;
   }
 
-  hostData() {
-    return {
-      class: {
-        [this.classNames]: true,
-      },
-    };
-  }
+  // hostData() {
+  //   return {
+  //     class: {
+  //       [this.classnames]: true,
+  //     },
+  //   };
+  // }
 
   open = (): void => {
     const { amount, recipient } = this;
@@ -56,9 +56,9 @@ export class LiskButtonSend {
   }
 
   private getTitle = () =>
-    this.buttonTitle || `Send ${this.amount} LSK to ${this.recipient}`
+    this.buttontitle || `Send ${this.amount} LSK to ${this.recipient}`
 
   render() {
-    return <button onClick={this.open}>{this.getTitle()}</button>;
+    return <button class={this.classnames} onClick={this.open}>{this.getTitle()}</button>;
   }
 }

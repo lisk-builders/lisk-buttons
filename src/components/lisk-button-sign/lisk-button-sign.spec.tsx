@@ -21,20 +21,20 @@ describe('LiskButtonSign', () => {
     });
 
     it('should display title', async () => {
-      element.buttonTitle = 'Sign';
+      element.buttontitle = 'Sign';
       await window.flush();
       expect(element.textContent).toEqual('Sign');
     });
 
     it('should display default title with default wallet (lisk hub)', async () => {
-      element.buttonTitle = '';
+      element.buttontitle = '';
       element.message = 'try sign default title with hub';
       await window.flush();
       expect(element.textContent).toEqual('Use Lisk Hub to sign the message');
     });
 
     it('should display default title with nano wallet', async () => {
-      element.buttonTitle = '';
+      element.buttontitle = '';
       element.type = 'nano';
       element.message = 'try sign default title with nano';
       await window.flush();

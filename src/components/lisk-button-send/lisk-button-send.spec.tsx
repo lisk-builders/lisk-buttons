@@ -21,13 +21,13 @@ describe('LiskButtonSend', () => {
     });
 
     it('should display title', async () => {
-      element.buttonTitle = 'Send';
+      element.buttontitle = 'Send';
       await window.flush();
       expect(element.textContent).toEqual('Send');
     });
 
     it('should display default title', async () => {
-      element.buttonTitle = '';
+      element.buttontitle = '';
       element.amount = 1000;
       element.recipient = '15015136092749848942L';
       await window.flush();

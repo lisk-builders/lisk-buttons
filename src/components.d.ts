@@ -14,41 +14,41 @@ export namespace Components {
 
   interface LiskButtonSend {
     'amount': number;
-    'buttonTitle': string;
-    'classNames': string;
+    'buttontitle': string;
+    'classnames': string;
     'recipient': string;
   }
   interface LiskButtonSendAttributes extends StencilHTMLAttributes {
     'amount'?: number;
-    'buttonTitle'?: string;
-    'classNames'?: string;
+    'buttontitle'?: string;
+    'classnames'?: string;
     'recipient'?: string;
   }
 
   interface LiskButtonSign {
-    'buttonTitle': string;
-    'classNames': string;
+    'buttontitle': string;
+    'classnames': string;
     'message': string;
     'sourceId': string;
     'type': string;
   }
   interface LiskButtonSignAttributes extends StencilHTMLAttributes {
-    'buttonTitle'?: string;
-    'classNames'?: string;
+    'buttontitle'?: string;
+    'classnames'?: string;
     'message'?: string;
     'sourceId'?: string;
     'type'?: string;
   }
 
   interface LiskButtonVote {
-    'buttonTitle': string;
-    'classNames': string;
+    'buttontitle': string;
+    'classnames': string;
     'unvotes': string;
     'votes': string;
   }
   interface LiskButtonVoteAttributes extends StencilHTMLAttributes {
-    'buttonTitle'?: string;
-    'classNames'?: string;
+    'buttontitle'?: string;
+    'classnames'?: string;
     'unvotes'?: string;
     'votes'?: string;
   }

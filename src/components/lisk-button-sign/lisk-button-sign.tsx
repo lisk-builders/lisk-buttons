@@ -17,9 +17,9 @@ export class LiskButtonSign {
 
   @Prop() type: string;
   @Prop() message: string;
-  @Prop() buttonTitle: string;
+  @Prop() buttontitle: string;
   @Prop() sourceId = '';
-  @Prop() classNames = 'lisk-btn-sign-wrapper';
+  @Prop() classnames = 'lisk-btn-sign-wrapper';
 
   openUrl(url: string): void {
     checkAndOpen(url, this.onError, this.onSuccess);
@@ -42,13 +42,13 @@ export class LiskButtonSign {
     window.location.href = redirectUrl;
   }
 
-  hostData() {
-    return {
-      class: {
-        [this.classNames]: true,
-      },
-    };
-  }
+  // hostData() {
+  //   return {
+  //     class: {
+  //       [this.classnames]: true,
+  //     },
+  //   };
+  // }
 
   private getValue(): string {
     const input: HTMLInputElement = document.querySelector(`#${this.sourceId}`);
@@ -67,11 +67,11 @@ export class LiskButtonSign {
 
   private getTitle = () => {
     const wallet = this.type === 'nano' ? 'Lisk Nano' : 'Lisk Hub';
-    return this.buttonTitle || `Use ${wallet} to sign the message`;
+    return this.buttontitle || `Use ${wallet} to sign the message`;
   }
 
   render() {
     // NB: Lisk-nano doesn't support message pre-fill... it will just open sign message page
-    return <button onClick={this.open}>{this.getTitle()}</button>;
+    return <button class={this.classnames} onClick={this.open}>{this.getTitle()}</button>;
   }
 }
