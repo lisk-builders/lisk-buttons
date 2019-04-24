@@ -15,6 +15,11 @@ export class LiskButtonVote {
 
   private urls: AppUrls = appLinks;
 
+  @Prop() unvotes: string;
+  @Prop() votes: string;
+  @Prop() buttonTitle: string;
+  @Prop() classNames = 'lisk-btn-vote-wrapper';
+
   openUrl(url: string): void {
     checkAndOpen(url, this.onError, this.onSuccess);
   }
@@ -36,17 +41,13 @@ export class LiskButtonVote {
     window.location.href = redirectUrl;
   }
 
-  hostData(classNames = '') {
+  hostData() {
     return {
       class: {
-        [classNames]: true,
+        [this.classNames]: true,
       },
     };
   }
-  @Prop() unvotes: string;
-  @Prop() votes: string;
-  @Prop() buttonTitle: string;
-  @Prop() classNames = 'lisk-btn-vote-wrapper';
 
   open = (): void => {
     const { votes, unvotes } = this;

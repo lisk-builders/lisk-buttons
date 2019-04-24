@@ -15,6 +15,11 @@ export class LiskButtonSend {
 
   private urls: AppUrls = appLinks;
 
+  @Prop() amount: number;
+  @Prop() recipient: string;
+  @Prop() buttonTitle: string;
+  @Prop() classNames = 'lisk-btn-send-wrapper';
+
   openUrl(url: string): void {
     checkAndOpen(url, this.onError, this.onSuccess);
   }
@@ -36,18 +41,13 @@ export class LiskButtonSend {
     window.location.href = redirectUrl;
   }
 
-  hostData(classNames = '') {
+  hostData() {
     return {
       class: {
-        [classNames]: true,
+        [this.classNames]: true,
       },
     };
   }
-
-  @Prop() amount: number;
-  @Prop() recipient: string;
-  @Prop() buttonTitle: string;
-  @Prop() classNames = 'lisk-btn-send-wrapper';
 
   open = (): void => {
     const { amount, recipient } = this;

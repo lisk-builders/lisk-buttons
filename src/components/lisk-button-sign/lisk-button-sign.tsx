@@ -15,6 +15,12 @@ export class LiskButtonSign {
 
   private urls: AppUrls = appLinks;
 
+  @Prop() type: string;
+  @Prop() message: string;
+  @Prop() buttonTitle: string;
+  @Prop() sourceId = '';
+  @Prop() classNames = 'lisk-btn-sign-wrapper';
+
   openUrl(url: string): void {
     checkAndOpen(url, this.onError, this.onSuccess);
   }
@@ -36,19 +42,13 @@ export class LiskButtonSign {
     window.location.href = redirectUrl;
   }
 
-  hostData(classNames = '') {
+  hostData() {
     return {
       class: {
-        [classNames]: true,
+        [this.classNames]: true,
       },
     };
   }
-
-  @Prop() type: string;
-  @Prop() message: string;
-  @Prop() buttonTitle: string;
-  @Prop() sourceId = '';
-  @Prop() classNames = 'lisk-btn-sign-wrapper';
 
   private getValue(): string {
     const input: HTMLInputElement = document.querySelector(`#${this.sourceId}`);
