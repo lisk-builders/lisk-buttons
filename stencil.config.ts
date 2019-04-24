@@ -10,9 +10,7 @@ export const config: Config = {
     { type: 'www' },
     { type: 'dist' }
   ],
+  devServer: {
+    root: 'www'
+  }
 };
-
-exports.devServer = {
-  root: 'www',
-  watchGlob: '**/**'
-}

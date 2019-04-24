@@ -1,6 +1,6 @@
 {
   "name": "@lisk-builders/lisk-buttons",
-  "version": "0.7.4",
+  "version": "0.7.5",
   "description": "lisk buttons allow you to open Lisk Nano wallet with pre-filled forms",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -14,14 +14,15 @@
     "dev": "stencil build --dev --watch --serve --es5",
     "serve": "stencil-dev-server",
     "start": "npm run dev",
-    "test": "jest --no-cache",
-    "test.watch": "jest --watch --no-cache",
+    "test": "stencil test --spec",
+    "test.watch": "stencil test --spec --watch",
+    "test.e2e": "stencil test --e2e",
     "test.ci": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "tslint": "./node_modules/tslint/bin/tslint -p ./"
   },
   "dependencies": {
     "@alepop/check-for-uri-handler": "0.0.4",
-    "@stencil/core": "0.12.4",
+    "@stencil/core": "0.18.1",
     "@stencil/sass": "0.1.1"
   },
   "devDependencies": {
@@ -31,7 +32,8 @@
     "jest": "^21.2.1",
     "tslint": "5.10.0",
     "tslint-ionic-rules": "0.0.16",
-    "typescript": "^3.4.5"
+    "typescript": "^3.4.5",
+    "workbox-build": "3.4.1"
   },
   "repository": {
     "type": "git",
